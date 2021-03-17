@@ -11,6 +11,7 @@ H2{
 }
 
 .Columna{
+    
     font-size: 30px;
     font-family: 'Times New Roman', Times, serif;
 	background-color: #1883ba;
@@ -106,7 +107,8 @@ H2{
 }
 
 .Columna1{
-    color: rgb(8, 248, 168);
+    background-image: url("../img/p-fis.jpg");
+    color: rgb(0, 0, 0);
     font-size: 70px;
     font-family: 'Times New Roman', Times, serif;
 
@@ -124,7 +126,8 @@ H2{
 }
 
 .Columna2{
-    color: rgb(8, 248, 168);
+    background-image: url('../img/p-psi.jpg');
+    color: rgb(0, 0, 0);
     font-size: 70px;
     font-family: 'Times New Roman', Times, serif;
 
@@ -142,7 +145,8 @@ H2{
 }
 
 .Columna3{
-    color: rgb(8, 248, 168);
+    background-image: url('../img/p-mus.jpg');
+    color: rgb(0, 0, 0);
     font-size: 70px;
     font-family: 'Times New Roman', Times, serif;
 
@@ -242,6 +246,13 @@ H2{
 
 .Reloj{
 
+
+    
+    pointer-events: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    left: 100px;
 	text-align:center;
 	box-shadow: none;
 	border: 0px solid #0016b0;
@@ -254,4 +265,8 @@ H2{
 	color: #ffffff;
 	border-radius: 6px;
 
+}
+
+p {
+    color:rgb(0, 0, 0)
 }

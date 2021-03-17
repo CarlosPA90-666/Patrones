@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inicio</title>
-    <link rel="stylesheet" href="estilo4.css">
+    <link rel="stylesheet" href="css/estilo4.css">
+    <script src="js/Modulo.js"></script>
 
     <link href="https://fonts.googleapis.com/css?family=Bellota&display=swap" rel="stylesheet">
 </head>
@@ -15,11 +16,19 @@
 
 <br>    <br>    <br>
 
-	<div class="Reloj" style="color:rgb(255, 255, 255)">
-            <iframe src="https://www.zeitverschiebung.net/clock-widget-iframe-v2?language=es&size=large&timezone=America%2FBogota" width="70%" height="125" frameborder="0" >
-            </iframe>
 
+
+    
+
+    <div class="Reloj">
+        <iframe src="https://www.zeitverschiebung.net/clock-widget-iframe-v2?language=es&size=large&timezone=America%2FBogota" width="70%" height="125" frameborder="0">
+        </iframe>
     </div>
+
+
+
+
+	
 
 <br>    <br>    <br>
 <br>    <br>    <br>
@@ -38,38 +47,14 @@
             <ul id="elementoUl">   
             </ul>   
         
-            <script>
-                window.onload = init;
-                function init(){
-                    document.getElementById("anadir").addEventListener("click",anadirElemento);
-                    document.getElementById("reiniciar").addEventListener("click",reiniciarLista);
-                }
-                
-                function anadirElemento(){
-                    var elementoUl = document.getElementById("elementoUl");
-                        var aux = document.getElementById("introduccionDatos");
-                        if (aux.value != ""){
-                            var elementoLi = document.createElement("li");
-                            elementoLi.innerHTML = aux.value;
-                            elementoUl.appendChild(elementoLi);
-                            aux.value="";
-                        }else{window.alert("Debes rellenar el formulario")}
-                }
-                
-                function reiniciarLista(){
-                    var elementosEliminar = document.getElementsByTagName("li");
-                        
-                        while(elementosEliminar.length!=0){
-                        elementosEliminar[0].parentNode.removeChild(elementosEliminar[0]);   
-                    }
-                }   
-            </script>
     </div>
 
     <br>    <br>    <br>
 
      
     <a class="boton1" href="Interfaces.html">Ingresar</a>
+
+    
 
 </body>
 
