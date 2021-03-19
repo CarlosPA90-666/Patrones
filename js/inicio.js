@@ -1,6 +1,5 @@
 "use strict";
 
-//----------------------------------Inicio.html----------------------------------
 window.onload = init;
 function init() {
   document.getElementById("anadir").addEventListener("click", anadirElemento);
@@ -29,4 +28,3 @@ function reiniciarLista() {
     elementosEliminar[0].parentNode.removeChild(elementosEliminar[0]);
   }
 }
-//----------------------------------Inicio.html----------------------------------

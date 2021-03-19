@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Inicio</title>
     <link rel="stylesheet" href="css/estilo4.css" />
-    <script src="js/Modulo.js"></script>
+    <script src="js/inicio.js"></script>
 
     <link
       href="https://fonts.googleapis.com/css?family=Bellota&display=swap"
@@ -13,44 +13,32 @@
     />
   </head>
 
-  <body style="overflow: hidden; cursor: pointer" background="img/P-fam.jpg">
-    <br />
-    <br />
-    <br />
-
+  <body>
     <div class="Reloj">
       <iframe
         src="https://www.zeitverschiebung.net/clock-widget-iframe-v2?language=es&size=large&timezone=America%2FBogota"
-        width="70%"
-        height="125"
-        frameborder="0"
-      >
-      </iframe>
+      ></iframe>
     </div>
+    <div class="centrar">
+      <div class="Columna">
+        <h2>RECORDATORIOS</h2>
 
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
+        <form action="#">
+          <input
+            type="text"
+            placeholder="Escriba aqui su recordatorio"
+            class="introduccionDatos"
+            id="introduccionDatos"
+          />
+          <input type="button" value="Añadir a la lista" id="anadir" />
+          <input type="button" value="Reiniciar" id="reiniciar" />
+        </form>
 
-    <div class="Columna">
-      <h2 style="color: rgb(255, 255, 255)">RECORDATORIOS</h2>
-
-      <form action="#">
-        <input type="text" class="introduccionDatos" id="introduccionDatos" />
-        <input type="button" value="Añadir a la lista" id="anadir" />
-        <input type="button" value="Reiniciar" id="reiniciar" />
-      </form>
-
-      <ul id="elementoUl"></ul>
+        <ul id="elementoUl"></ul>
+      </div>
     </div>
-
-    <br />
-    <br />
-    <br />
-
-    <a class="boton1" href="Interfaces.html">Ingresar</a>
+    <div class="centrar">
+      <a class="boton1" href="Interfaces.html">Ingresar</a>
+    </div>
   </body>
 </html>
