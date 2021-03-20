@@ -9,15 +9,17 @@
       href="https://fonts.googleapis.com/css?family=Bellota&display=swap"
       rel="stylesheet"
     />
-    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
-    
-
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.js"
+      integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script
+      type="text/javascript"
+      src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.6/Chart.bundle.min.js"
+    ></script>
   </head>
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.6/Chart.bundle.min.js"></script>
 
   <body>
     <br />
@@ -28,51 +30,40 @@
     </div>
 
     <div id="Ejercicios-subtitulos">
+      <div class="centrar">
+        <section class="Contenedor">
+          <div class="Columna brujula" id="brujula">
+            <p>
+              <a> La brújula </a>
+              <!--     LINK A LAS INSTRUCCIONES Y VIDEOS   --->
+            </p>
+          </div>
 
-      <section class="ContenedorFis1">
-        <div
-          class="Columna1"
-          style="background-image: url('img/Fis-brujula.jpg')"
-          id="brujula"
-        >
-          <p>
-            <a> La brújula </a>
-            <!--     LINK A LAS INSTRUCCIONES Y VIDEOS   --->
-          </p>
-        </div>
-  
-        <div id="Aros" class="Columna2" style="background-image: url('img/Fis-Aros.jpg')">
-          <p>Lanzamiento de aros</p>
-        </div>
-  
-        <div id="Pelota" class="Columna3" style="background-image: url('img/Fis-Pelota.jpg')">
-          <p>La pelota</p>
-        </div>
-      </section>
-  
-      <section class="ContenedorFis2">
-        <div id="espejito" class="Columna3" style="background-image: url('img/Fis-Espejo.jpg')">
-          <p>Espejito Espejito</p>
-        </div>
-  
-        <div
-          id="Estatua"
-          class="Columna3"
-          style="background-image: url('img/Fis-Estatua.jpg')"
-        >
-          <p>Estatua en movimiento</p>
-        </div>
-      </section>
+          <div id="Aros" class="Columna aros">
+            <p>Lanzamiento de aros</p>
+          </div>
 
+          <div id="Pelota" class="Columna pelota">
+            <p>La pelota</p>
+          </div>
+        </section>
+      </div>
+      <div class="centrar">
+        <section class="Contenedor">
+          <div id="espejito" class="Columna espejo">
+            <p>Espejito Espejito</p>
+          </div>
 
+          <div id="Estatua" class="Columna estatua">
+            <p>Estatua en movimiento</p>
+          </div>
+        </section>
+      </div>
       <script type="text/javascript" src="js/Ejercicios.js"></script>
-
-
     </div>
 
-    
     <div class="centrar">
-      <a id="regresardefisicas" class="boton1" href="Interfaces.html">Volver</a>
+      <a id="regresardefisicas" class="boton" href="Interfaces.html">Volver</a>
     </div>
   </body>
 </html>
