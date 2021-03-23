@@ -2,7 +2,7 @@
 <h1>{% block title %} Recordatorios {% endblock %}</h1>
 <div class="box">
   {% if g.user %}
-  <a class="action" href="{{ url_for('aplicacion.create') }}">Nuevo</a>
+  <a class="action" href="{{ url_for('patrones.create') }}">Nuevo</a>
   {% endif %}
 </div>
 {% endblock %} {% block content %}
@@ -22,12 +22,12 @@
         </div>
         <a
           class="action"
-          href="{{ url_for('aplicacion.update', id=recordatorio['id']) }}"
+          href="{{ url_for('patrones.update', id=recordatorio['id']) }}"
           >Editar</a
         >
         <a
           class="action"
-          href="{{ url_for('aplicacion.complete', id=recordatorio['id']) }}"
+          href="{{ url_for('patrones.complete', id=recordatorio['id']) }}"
           >Completar</a
         >
       </div>

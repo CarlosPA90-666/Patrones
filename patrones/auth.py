@@ -1,7 +1,7 @@
 import functools
 from flask import (Blueprint, flash, g, render_template, request, url_for, session, redirect)
 from werkzeug.security import check_password_hash, generate_password_hash
-from aplicacion.db import get_db
+from patrones.db import get_db
 
 bp = Blueprint('auth', __name__, url_prefix='/auth')
 
@@ -54,7 +54,7 @@ def login():
         if error is None:
             session.clear()
             session['user_id'] = user['id']
-            return redirect(url_for('aplicacion.index'))
+            return redirect(url_for('patrones.index'))
         flash(error)
     return render_template('auth/login.html')
 
