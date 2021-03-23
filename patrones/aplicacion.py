@@ -84,3 +84,8 @@ def complete(id):
             db.commit()
             return redirect(url_for('patrones.index'))
     return render_template('aplicacion/complete.html',recordatorio=recordatorio)
+
+@bp.route('/<string:pagina>')
+@login_require
+def interfaces(pagina):
+    return render_template('aplicacion/{}.html'.format(pagina))

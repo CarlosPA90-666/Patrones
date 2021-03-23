@@ -1,18 +1,30 @@
 {% extends 'base.html' %} {% block header %}
 <h1>{% block title %} Interfaces {% endblock %}</h1>
-{% endblock %} {% block content %} {% block content %}
+{% endblock %} {% block content %}
 <div class="centrar">
   <section class="Contenedor">
     <div class="Columna fisicos">
-      <a class="fill" href="ActFisicas.html">Estimulantes Físicos</a>
+      <a
+        class="fill"
+        href="{{ url_for('patrones.interfaces', pagina='actFisicas') }}"
+        >Estimulantes Físicos</a
+      >
     </div>
 
     <div class="Columna mentales">
-      <a class="fill" href="ActPsicologicas.html">Estimulantes Mentales</a>
+      <a
+        class="fill"
+        href="{{ url_for('patrones.interfaces', pagina='actPsicologicas') }}"
+        >Estimulantes Mentales</a
+      >
     </div>
 
     <div class="Columna musica">
-      <a class="fill" href="Musica.html">Música ambiente</a>
+      <a
+        class="fill"
+        href="{{ url_for('patrones.interfaces', pagina='musica') }}"
+        >Música ambiente</a
+      >
     </div>
   </section>
 </div>

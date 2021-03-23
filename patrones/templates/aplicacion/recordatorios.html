@@ -13,8 +13,8 @@
       <div>
         <h2>
           {% if recordatorio['completed'] == 1%}
-          <strike>Orden: {{ recordatorio['description'] }}</strike>
-          {%else%} Orden: {{ recordatorio['description'] }} {%endif%}
+          <strike>{{ recordatorio['description'] }}</strike>
+          {%else%}{{ recordatorio['description'] }} {%endif%}
         </h2>
 
         <div class="about">
@@ -37,4 +37,11 @@
     {% endif %} {% endfor %}
   </div>
 </ul>
+<div class="centrar">
+  <a
+    class="action"
+    href="{{ url_for('patrones.interfaces', pagina='interfaces') }}"
+    >Actividades</a
+  >
+</div>
 {% endblock %}

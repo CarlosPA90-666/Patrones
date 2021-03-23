@@ -31,10 +31,14 @@
       </div>
     </section>
   </div>
-  <script type="text/javascript" src="js/Ejercicios.js"></script>
+  <script type="text/javascript" src="../../static/js/Ejercicios.js"></script>
 </div>
 
 <div class="centrar">
-  <a id="regresardefisicas" class="boton" href="Interfaces.html">Volver</a>
+  <a
+    class="action"
+    href="{{ url_for('patrones.interfaces', pagina='interfaces') }}"
+    >Actividades</a
+  >
 </div>
 {% endblock %}
