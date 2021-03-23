@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<title>{% block title %} Inicio {% endblock %}</title>
+<link rel="stylesheet" href="{{url_for('static/css', filename='style.css')}}" />
+
+<body>
+  <div class="Reloj">
+    <iframe
+      src="https://www.zeitverschiebung.net/clock-widget-iframe-v2?language=es&size=large&timezone=America%2FBogota"
+    ></iframe>
+  </div>
+
+  <ul>
+    <div class="box">
+      {% if g.user %}
+      <li><span>{{ g.user['username'] }}</span></li>
+      <li><a href="{{ url_for('auth.logout') }}">Cerrar Sesion</a></li>
+      {% else %}
+      <li><a href="{{ url_for('auth.register') }}">Registrarse</a></li>
+      <li><a href="{{ url_for('auth.login') }}">Iniciar Sesion</a></li>
+      {% endif %}
+    </div>
+  </ul>
+  <section class="content">
+    <header>{% block header %}{% endblock %}</header>
+    {% for message in get_flashed_messages() %}
+    <div class="flash"><h3>{{ message }}</h3></div>
+    {% endfor %} {% block content %}{% endblock %}
+  </section>
+</body>

@@ -1,0 +1,38 @@
+{% extends 'base.html' %} {% block header %}
+<h1>{% block title %} Musica {% endblock %}</h1>
+{% endblock %} {% block content %}
+<div class="centrar">
+  <section class="Contenedor">
+    <div class="Columna inicio">
+      <h2>MUSICA AMBIENTE</h2>
+
+      <div id="reproductorBox"></div>
+      <select
+        id="selectTrack"
+        multiple
+        onchange="cambiarTrack(this.options[this.selectedIndex]);"
+      >
+        <option path="music\Eminem  Godzilla.mp4">Eminem Godzilla</option>
+        <option path="music\Eminem  Lose Yourself.mp4">
+          Eminem Lose Yourself
+        </option>
+        <option path="music\Eminem  Mockingbird.mp4">Eminem Mockingbird</option>
+        <option path="music\KDA  MORE.mp4">KDA MORE</option>
+        <option path="music\KDA  POPSTARS.mp4">KDA POPSTARS</option>
+        <option path="music\KDA  VILLAIN.mp4">KDA VILLAIN</option>
+        <option path="music\aha  Take On Me.mp4">Ah Ah - Take on me</option>
+        <option path="music\Bee Gees  How Deep Is Your Love.mp4">
+          Bee Geees - How deep is your love
+        </option>
+        <option path="music\Kansas  Dust in the Wind.mp4">
+          Kansas - Dust in the wind
+        </option>
+      </select>
+    </div>
+  </section>
+</div>
+<div class="centrar">
+  <a class="boton" href="Interfaces.html">Volver</a>
+</div>
+<script src="./static/js/musica.js"></script>
+{% endblock %}

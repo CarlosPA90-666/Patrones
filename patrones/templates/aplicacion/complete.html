@@ -1,0 +1,26 @@
+{% extends 'base.html' %} {% block header %}
+<h1>
+  {% block title %} Completar {{ recordatorio['description'] }}{% endblock %}
+</h1>
+{% endblock %} {% block content %}
+<div class="formulario">
+  <form method="POST">
+    <label for="completed">Confirmar</label>
+    <input type="checkbox" name="completed" id="completed" {% if
+    recordatorio['completed'] == 1 %}checked{% endif %} />
+    <input type="submit" value="Guardar" />
+  </form>
+  <form
+    action="{{ url_for('aplicacion.delete',id=recordatorio['id']) }}"
+    method="POST"
+  >
+    <input
+      class="danger"
+      type="submit"
+      value="Eliminar"
+      onclick="return confirm('¿estas seguro de querer eliminarlo?')"
+    />
+  </form>
+  <a class="action" href="{{ url_for('aplicacion.index') }}">Volver</a>
+</div>
+{% endblock %}

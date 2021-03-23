@@ -1,0 +1,40 @@
+{% extends 'base.html' %} {% block header %}
+<h1>{% block title %} Actividades físicas {% endblock %}</h1>
+{% endblock %} {% block content %}
+<div id="Ejercicios-subtitulos">
+  <div class="centrar">
+    <section class="Contenedor">
+      <div class="Columna brujula" id="brujula">
+        <p>
+          <a> La brújula </a>
+          <!--     LINK A LAS INSTRUCCIONES Y VIDEOS   --->
+        </p>
+      </div>
+
+      <div id="Aros" class="Columna aros">
+        <p>Lanzamiento de aros</p>
+      </div>
+
+      <div id="Pelota" class="Columna pelota">
+        <p>La pelota</p>
+      </div>
+    </section>
+  </div>
+  <div class="centrar">
+    <section class="Contenedor">
+      <div id="espejito" class="Columna espejo">
+        <p>Espejito Espejito</p>
+      </div>
+
+      <div id="Estatua" class="Columna estatua">
+        <p>Estatua en movimiento</p>
+      </div>
+    </section>
+  </div>
+  <script type="text/javascript" src="js/Ejercicios.js"></script>
+</div>
+
+<div class="centrar">
+  <a id="regresardefisicas" class="boton" href="Interfaces.html">Volver</a>
+</div>
+{% endblock %}

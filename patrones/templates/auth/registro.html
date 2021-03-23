@@ -1,0 +1,53 @@
+{% extends 'base.html' %} {% block header %}
+<h1>{% block title %}Registro{% endblock %}</h1>
+{% endblock %} {% block content %}
+<div class="formulario">
+  <form method="POST">
+    <label for="username">Username</label>
+    <input
+      type="text"
+      name="username"
+      id="username"
+      placeholder="Username..."
+      required
+    />
+    <label for="password">Password</label>
+    <input
+      type="password"
+      name="password"
+      id="password"
+      placeholder="Password..."
+      required
+    />
+    <label for="email">Email</label>
+    <input
+      type="text"
+      name="email"
+      id="email"
+      placeholder="Email..."
+      required
+    />
+    <label for="address">Direccion</label>
+    <input
+      type="text"
+      name="address"
+      id="address"
+      placeholder="Direcion..."
+      required
+    />
+    <label for="phone">Telefono</label>
+    <input
+      type="number"
+      min="3000000000"
+      max="3999999999"
+      name="phone"
+      id="phone"
+      placeholder="Telefono..."
+      required
+    />
+    <label for="phone">Fecha de nacimiento</label>
+    <input type="date" name="birthdate" id="birthdate" required />
+    <input type="submit" value="Registrarse" />
+  </form>
+</div>
+{% endblock %}

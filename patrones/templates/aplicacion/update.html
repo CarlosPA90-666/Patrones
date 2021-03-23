@@ -1,0 +1,29 @@
+{% extends 'base.html' %} {% block header %}
+<h1>
+  {% block title %} Editar {{ recordatorio['description'] }}{% endblock %}
+</h1>
+{% endblock %} {% block content %}
+<div class="formulario">
+  <form method="POST">
+    <input
+      type="text"
+      name="description"
+      id="description"
+      placeholder="Recordatorio..."
+    />
+    <input type="submit" value="Guardar" />
+  </form>
+  <form
+    action="{{ url_for('aplicacion.delete',id=recordatorio['id']) }}"
+    method="POST"
+  >
+    <input
+      class="danger"
+      type="submit"
+      value="Eliminar"
+      onclick="return confirm('¿estas seguro de querer eliminarlo?')"
+    />
+  </form>
+  <a class="action" href="{{ url_for('aplicacion.index') }}">Volver</a>
+</div>
+{% endblock %}

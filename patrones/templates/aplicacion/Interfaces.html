@@ -1,0 +1,23 @@
+{% extends 'base.html' %} {% block header %}
+<h1>{% block title %} Interfaces {% endblock %}</h1>
+{% endblock %} {% block content %} {% block content %}
+<div class="centrar">
+  <section class="Contenedor">
+    <div class="Columna fisicos">
+      <a class="fill" href="ActFisicas.html">Estimulantes Físicos</a>
+    </div>
+
+    <div class="Columna mentales">
+      <a class="fill" href="ActPsicologicas.html">Estimulantes Mentales</a>
+    </div>
+
+    <div class="Columna musica">
+      <a class="fill" href="Musica.html">Música ambiente</a>
+    </div>
+  </section>
+</div>
+
+<div class="centrar">
+  <a class="action" href="{{ url_for('aplicacion.index') }}">Volver</a>
+</div>
+{% endblock %}
