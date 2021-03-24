@@ -1,5 +1,5 @@
 {% extends 'base.html' %} {% block header %}
-<h1>{% block title %} Interfaces {% endblock %}</h1>
+<h1 class="centrar">{% block title %} Interfaces {% endblock %}</h1>
 {% endblock %} {% block content %}
 <div class="centrar">
   <section class="Contenedor">
@@ -30,6 +30,6 @@
 </div>
 
 <div class="centrar">
-  <a class="action" href="{{ url_for('patrones.index') }}">Volver</a>
+  <a class="action boton" href="{{ url_for('patrones.index') }}">Volver</a>
 </div>
 {% endblock %}

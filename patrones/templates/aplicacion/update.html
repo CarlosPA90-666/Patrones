@@ -1,29 +1,35 @@
 {% extends 'base.html' %} {% block header %}
-<h1>
-  {% block title %} Editar {{ recordatorio['description'] }}{% endblock %}
+<h1 class="centrar">
+  {% block title %} Editar: {{ recordatorio['description'] }}{% endblock %}
 </h1>
 {% endblock %} {% block content %}
-<div class="formulario">
-  <form method="POST">
+<div class="formulario Columna inicio centrarcontenido">
+  <form class="Columna inicio centrarcontenido" method="POST">
     <input
       type="text"
       name="description"
       id="description"
       placeholder="Recordatorio..."
     />
-    <input type="submit" value="Guardar" />
+    <input class="boton centrar" type="submit" value="Guardar" />
   </form>
-  <form
+
+  <div class="box">
+    <form class="actualizacion"
     action="{{ url_for('patrones.delete',id=recordatorio['id']) }}"
     method="POST"
   >
     <input
-      class="danger"
+      class="boton"
       type="submit"
       value="Eliminar"
       onclick="return confirm('¿estas seguro de querer eliminarlo?')"
     />
+    <a class="action boton" href="{{ url_for('patrones.index') }}">Volver</a>
   </form>
-  <a class="action" href="{{ url_for('patrones.index') }}">Volver</a>
+  
+    
+  </div>
+  
 </div>
 {% endblock %}

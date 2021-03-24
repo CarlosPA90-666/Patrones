@@ -1,8 +1,8 @@
 {% extends 'base.html' %} {% block header %}
-<h1>{% block title %}Iniciar sesion{% endblock %}</h1>
+<h1 class="centrar">{% block title %}Iniciar Sesión{% endblock %}</h1>
 {% endblock %} {% block content %}
-<div class="formulario">
-  <form method="POST" class="ingresar">
+<div class="formulario Columna inicio centrarcontenido">
+  <form method="POST" class="ingresar Columna inicio centrarcontenido">
     <label for="username">Username</label>
     <input
       type="text"
@@ -19,7 +19,10 @@
       placeholder="Password..."
       required
     />
-    <input type="submit" value="Iniciar sesion" />
+    <div class="centrar">
+      <input class="boton" type="submit" value="Iniciar Sesión" />
+    </div>
+    
   </form>
 </div>
 {% endblock %}
