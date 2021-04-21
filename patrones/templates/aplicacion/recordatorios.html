@@ -16,7 +16,8 @@
         {% for recordatorio in recordatorios %}
         <li class="pedido">
           <div class="Columna inicio centrarcontenido">
-            <h2 class="boxline">
+            <!-- Caja de Recordatorios -->
+            <h2>
               Recordatorios
               {% if recordatorio['completed'] == 1%}
               <strike>{{ recordatorio['description'] }}</strike>
@@ -54,7 +55,8 @@
         {% for recordatorio in recordatorios %}
         <li class="pedido">
           <div class="Columna inicio centrarcontenido">
-            <h2 class="boxline">
+            <!-- Caja de Medicamentos -->
+            <h2>
               Medicamentos
               {% if recordatorio['completed'] == 1%}
               <strike>{{ recordatorio['description'] }}</strike>
@@ -92,7 +94,8 @@
         {% for recordatorio in recordatorios %}
         <li class="pedido">
           <div class="Columna inicio centrarcontenido">
-            <h2 class="boxline">
+            <!-- Caja de Citas Medicas -->
+            <h2>
               CitasMedicas
               {% if recordatorio['completed'] == 1%}
               <strike>{{ recordatorio['description'] }}</strike>

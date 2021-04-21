@@ -25,6 +25,8 @@ body {
 
 }
 .logo{
+  margin-top: 50px;
+  margin-bottom: none;
   width: 160px;
   cursor: pointer;
   animation: movedown 1s linear 1;
@@ -594,18 +596,17 @@ header{
 
 /*Inicio Contenedor*/
 .container{
-	background-color: none;
-  padding: 1em;
-  overflow: hidden;
+  margin-bottom: 20px;
   display:flex;
   justify-content: space-around;
 }
 
 .boxline{
   display:flex;
-  justify-content: center;
   align-items: center;
-  color: #ffffff;
-  float: justify;
+  display: inline-block;
+  margin: 0px;
+  width: 800px;
+
 }
 /*Cerrar Contenedor*/
