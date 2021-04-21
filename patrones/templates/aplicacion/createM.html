@@ -1,0 +1,29 @@
+{% extends 'base.html' %} {% block header %}
+<h1 class="centrar">{% block title %} Nuevo Recordatorio {% endblock %}</h1>
+{% endblock %} {% block content %}
+
+<div class="centrar">
+  <div class="Columna inicio centrarcontenido">
+    <h2 class="centrar">MEDICAMENTOS</h2>
+
+    <!--Creacion de un medicamento-->
+
+    <form method="POST">
+      <input
+        type="text"
+        name="description"
+        id="description"
+        placeholder="Recordatorio..."
+      />
+      <input class="boton" type="submit" value="Guardar" />
+    </form>
+    <!--Variable de identificacion, cambiarla por la respectiva de medicamentos-->
+    <ul id="elementoUl"></ul>
+  </div>
+</div>
+
+<div class="centrar">
+  <a class="action boton" href="{{ url_for('patrones.index') }}">Volver</a>
+</div>
+
+{% endblock %}
