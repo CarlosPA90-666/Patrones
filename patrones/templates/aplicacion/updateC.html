@@ -5,8 +5,10 @@
 {% endblock %} {% block content %}
 
 <!--Campo donde se ingresa la cita nueva-->
-<div class="formulario Columna inicio centrarcontenido">
-  <form class="Columna inicio centrarcontenido" method="POST">
+<section class="form-register">
+  <h2 class="centrar">RECORDATORIOS</h2>
+
+  <form method="POST">
     <label for="phone">Fecha de cita</label>
     <input type="date" name="birthdate" id="birthdate" required />
 
@@ -37,19 +39,26 @@
       type="text"
       name="acompanante_cita"
       id="acompanante_cita"
+      placeholder="Cantidad..."
+    />
+
+    <input
+      type="text"
+      name="acompanante_cita"
+      id="acompanante_cita"
       placeholder="Acompañante..."
     />
 
     <!--Boton para guardar la cita-->
     <input class="boton centrar" type="submit" value="Guardar" />
   </form>
-
+  <ul id="elementoUl"></ul>
   <!--Edicion de la cita-->
   <div class="box">
     <!--"id=recordatorio" tiene que cambiar por la variable de cita-->
     <form
       class="actualizacion"
-      action="{{ url_for('patrones.delete',id=cita['id']) }}"
+      action="{{ url_for('patrones.deleteC',id=cita['id']) }}"
       method="POST"
     >
       <!--Elimnar cita-->
@@ -62,5 +71,6 @@
       <a class="action boton" href="{{ url_for('patrones.index') }}">Volver</a>
     </form>
   </div>
-</div>
+</section>
+
 {% endblock %}
