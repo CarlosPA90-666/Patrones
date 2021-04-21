@@ -84,8 +84,8 @@ nav ul li a{
     animation-fill-mode: forwards;
 }
 .contentb{
-    margin-left: 10%;
-    margin-top: 10%
+    margin-left: 5%;
+    margin-top: 5%
 }
 
 @keyframes moveright{
@@ -332,21 +332,9 @@ a.fill {
 }
 
 .Reloj {
-  pointer-events: none;
   display: flex;
   justify-content: center;
-  align-items: center;
-  left: 100 px;
-  text-align: center;
-  box-shadow: none;
-  border: 0px solid #0016b0;
-  text-decoration: none;
-  padding: 50px;
-  font-weight: 300;
-  font-family: "Times New Roman", Times, serif;
-  font-size: 50px;
-  color: #ffffff;
-  border-radius: 6px;
+  
 }
 
 .centrar {
@@ -606,16 +594,18 @@ header{
 
 /*Inicio Contenedor*/
 .container{
-	background-color: #dfdfdf;
+	background-color: none;
   padding: 1em;
   overflow: hidden;
   display:flex;
   justify-content: space-around;
 }
-.item{
-	margin: 1em;
-  padding: 15px;
+
+.boxline{
+  display:flex;
+  justify-content: center;
+  align-items: center;
   color: #ffffff;
-  float: right;
+  float: justify;
 }
 /*Cerrar Contenedor*/
