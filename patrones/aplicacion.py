@@ -109,7 +109,7 @@ def create_medicamento():
         else:
             db,c = get_db()
             c.execute('insert into Medicamento (created_by,nombre,descripcion,dosis,posologia,precio,cantidad)'
-                    ' values (%s,%s,%s,%s,%s)',(g.user['id'],,description,False))
+                    ' values (%s,%s,%s,%s,%s)',(g.user['id'],description,False))
         db.commit()
         return redirect(url_for('patrones.index')) #TODO
 
