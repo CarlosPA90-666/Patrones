@@ -3,6 +3,10 @@ from flask import (Blueprint, flash, g, render_template, request, url_for, sessi
 from werkzeug.security import check_password_hash, generate_password_hash
 from patrones.db import get_db
 
+from email.mime.multipart import MIMEMultipart
+from email.mime.text import MIMEText
+import smtplib
+
 bp = Blueprint('auth', __name__, url_prefix='/auth')
 
 @bp.route('/register', methods=['GET','POST'])
@@ -14,7 +18,8 @@ def register():
         address = request.form['address']
         phone = request.form['phone']
         birthdate = request.form['birthdate']
-        
+        role = request.form['role']
+
         db,c = get_db()
         error = None
 
@@ -27,9 +32,12 @@ def register():
             error = 'Usuario {} se encuentra registrado.'.format(username)
 
         if error is None:
-            c.execute('insert into Usuario (username, password, email, address, phone, birthdate) values' 
-                    '(%s,%s,%s,%s,%s,%s)',(username, generate_password_hash(password),email,address,phone,birthdate))
+            c.execute('insert into Usuario (username, password, email, address, phone, birthdate, role) values' 
+                    '(%s,%s,%s,%s,%s,%s)',(username, generate_password_hash(password),email,address,phone,birthdate,role))
             db.commit()
+
+            email(username,email)
+
             return redirect(url_for('auth.login'))
         flash(error)
     return render_template('auth/register.html')
@@ -82,3 +90,22 @@ def login_require(view):
 def logout():
     session.clear()
     return redirect(url_for('auth.login'))
+
+def email(usuario, correo) :
+    msg = MIMEMultipart()
+    message = "Bienvenido {}! \nGracias por preocuparte por los adultos mayores tanto como nosotros.\
+        \nEn nuestra aplicación podras gestionar recordatorios, medicamentos y las citas médicas en veras de una vida\
+        cómoda, feliz y tranquila para su familiar. Asi mismo, encontrara ejercicios de estimulación fisica y mental asegunrando\
+        una buena calidad de vida."
+    
+    password = "Ni426293."
+    msg['From'] = "nicolas.cifuentes01@correo.usa.edu.co"
+    msg['To'] = correo
+    msg['Subject'] = "Bienvenido!"
+
+    msg.attach(MIMEText(message, 'plain'))
+    server = smtplib.SMTP('smtp.gmail.com: 587')
+    server.starttls()
+    server.login(msg['From'], password)
+    server.sendmail(msg['From'], msg['To'], msg.as_string())
+    server.quit()

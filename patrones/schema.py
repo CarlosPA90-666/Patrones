@@ -2,6 +2,8 @@ instructions = [
     'SET FOREIGN_KEY_CHECKS=0;',
     'DROP TABLE IF EXISTS Usuario;',
     'DROP TABLE IF EXISTS Recordatorio;',
+    'DROP TABLE IF EXISTS Medicamento;',
+    'DROP TABLE IF EXISTS Cita;',
     'SET FOREIGN_KEY_CHECKS=1;',
     """
         CREATE TABLE Usuario(
@@ -11,7 +13,8 @@ instructions = [
             email VARCHAR(100) NOT NULL,
             address VARCHAR(100) NOT NULL,
             phone VARCHAR(10) NOT NULL,
-            birthdate DATE NOT NULL
+            birthdate DATE NOT NULL,
+            role INT NOT NULL
         );
     """,
     """
@@ -21,6 +24,29 @@ instructions = [
             created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
             description TEXT NOT NULL,
             completed BOOLEAN NOT NULL,
+            FOREIGN KEY (created_by) REFERENCES Usuario (id)
+        );
+    """,
+    """
+        CREATE TABLE Medicamento(
+            id INT PRIMARY KEY AUTO_INCREMENT,
+            created_by INT NOT NULL,
+            medicine VARCHAR(100) NOT NULL,
+            description TEXT NOT NULL,
+            dose VARCHAR(100) NOT NULL,
+            posology VARCHAR(100) NOT NULL,
+            price DOUBLE NOT NULL,
+            amount INT NOT NULL,
+            FOREIGN KEY (created_by) REFERENCES Usuario (id)
+        );
+    """,
+    """
+        CREATE TABLE Cita(
+            id INT PRIMARY KEY AUTO_INCREMENT,
+            created_by INT NOT NULL,
+            date TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+            doctor VARCHAR(100) NOT NULL,
+            specialization VARCHAR(100) NOT NULL,
             FOREIGN KEY (created_by) REFERENCES Usuario (id)
         );
     """
