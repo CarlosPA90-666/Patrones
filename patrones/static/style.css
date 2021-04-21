@@ -378,6 +378,10 @@ a.fill {
   color: black;
 
 }
+.centrarboton{
+  display: flex;
+  justify-content: space-around;
+}
 
 .box{
   display: flex;
@@ -598,3 +602,20 @@ header{
 }
 
 /*Fin desplegable*/
+
+
+/*Inicio Contenedor*/
+.container{
+	background-color: #dfdfdf;
+  padding: 1em;
+  overflow: hidden;
+  display:flex;
+  justify-content: space-around;
+}
+.item{
+	margin: 1em;
+  padding: 15px;
+  color: #ffffff;
+  float: right;
+}
+/*Cerrar Contenedor*/
