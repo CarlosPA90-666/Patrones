@@ -3,6 +3,8 @@
   {% block title %} Editar: {{ Medicamentos['description'] }}{% endblock %}
 </h1>
 {% endblock %} {% block content %}
+
+<!--Campo donde se ingresan las medicinas nueva-->
 <div class="formulario Columna inicio centrarcontenido">
   <form class="Columna inicio centrarcontenido" method="POST">
     <input
@@ -11,14 +13,18 @@
       id="description"
       placeholder="Recordatorio..."
     />
+     <!--Campo donde se ingresan las medicinas-->
     <input class="boton centrar" type="submit" value="Guardar" />
   </form>
 
+  <!--Edicion de las medicinas consumidas-->
   <div class="box">
+       <!--"id=recordatorio" tiene que cambiar por la variable de medicinas-->
     <form class="actualizacion"
     action="{{ url_for('patrones.delete',id=recordatorio['id']) }}"
     method="POST"
   >
+   <!--Elimnar medicinas-->
     <input
       class="boton"
       type="submit"

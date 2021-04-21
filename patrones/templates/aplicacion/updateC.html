@@ -3,6 +3,8 @@
   {% block title %} Editar: {{ Citas['description'] }}{% endblock %}
 </h1>
 {% endblock %} {% block content %}
+
+<!--Campo donde se ingresa la cita nueva-->
 <div class="formulario Columna inicio centrarcontenido">
   <form class="Columna inicio centrarcontenido" method="POST">
     <input
@@ -11,14 +13,19 @@
       id="description"
       placeholder="Recordatorio..."
     />
+
+    <!--Boton para guardar la cita-->
     <input class="boton centrar" type="submit" value="Guardar" />
   </form>
 
+  <!--Edicion de la cita-->
   <div class="box">
+      <!--"id=recordatorio" tiene que cambiar por la variable de cita-->
     <form class="actualizacion"
     action="{{ url_for('patrones.delete',id=recordatorio['id']) }}"
     method="POST"
   >
+  <!--Elimnar cita-->
     <input
       class="boton"
       type="submit"
