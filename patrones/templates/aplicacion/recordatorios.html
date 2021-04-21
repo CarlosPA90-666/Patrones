@@ -1,51 +1,137 @@
-{% extends 'base.html' %} {% block header %}
+{% extends 'base.html' %} 
+{% block header %}
 <h1 class="centrar">{% block title %} Recordatorios {% endblock %}</h1>
 <div class="box centrar">
   {% if g.user %}
   <a class="action boton" href="{{ url_for('patrones.create') }}">Nuevo</a>
   {% endif %}
 </div>
-{% endblock %} {% block content %}
-<ul>
-  <div>
-    {% for recordatorio in recordatorios %}
-    <li class="pedido">
-      <div class="Columna inicio centrarcontenido">
-        <h2>
-          {% if recordatorio['completed'] == 1%}
-          <strike>{{ recordatorio['description'] }}</strike>
-          {%else%}{{ recordatorio['description'] }} {%endif%}
-        </h2>
+{% endblock %} 
 
-        <div class="about centrar">
-          {{ recordatorio['created_at'].strftime('%H:%M %Y-%m-%d') }}
-        </div>
-        <div class="centrar varios">
-          <a
-          class="action boton"
-          href="{{ url_for('patrones.update', id=recordatorio['id']) }}"
-          >Editar</a
-        >
-        <a
-          class="action boton"
-          href="{{ url_for('patrones.complete', id=recordatorio['id']) }}"
-          >Completar</a
-        >
+{% block content %}
 
-        </div>
+<div class="container">
+  <div class="item">
+    <ul>
+      <div>
+        {% for recordatorio in recordatorios %}
+        <li class="pedido">
+          <div class="Columna inicio centrarcontenido">
+            <h2>
+              {% if recordatorio['completed'] == 1%}
+              <strike>{{ recordatorio['description'] }}</strike>
+              {%else%}{{ recordatorio['description'] }} {%endif%}
+            </h2>
+
+            <div class="about centrar">
+              {{ recordatorio['created_at'].strftime('%H:%M %Y-%m-%d') }}
+            </div>
+            <div class="centrar varios">
+              <a
+              class="action boton"
+              href="{{ url_for('patrones.update', id=recordatorio['id']) }}"
+              >Editar</a
+          >
+            <a
+              class="action boton"
+              href="{{ url_for('patrones.complete', id=recordatorio['id']) }}"
+              >Completar</a
+            >
+
+            </div>
         
+          </div>
+        </li>
+        {% if not loop.last %}
+        <hr />
+        {% endif %} {% endfor %}
       </div>
-    </li>
-    {% if not loop.last %}
-    <hr />
-    {% endif %} {% endfor %}
+    </ul>
   </div>
-</ul>
-<div class="centrar">
-  <a
-    class="action boton"
-    href="{{ url_for('patrones.interfaces', pagina='interfaces') }}"
-    >Actividades</a
-  >
+  <div class="item">
+    <ul>
+      <div>
+        {% for recordatorio in recordatorios %}
+        <li class="pedido">
+          <div class="Columna inicio centrarcontenido">
+            <h2>
+              {% if recordatorio['completed'] == 1%}
+              <strike>{{ recordatorio['description'] }}</strike>
+              {%else%}{{ recordatorio['description'] }} {%endif%}
+            </h2>
+
+            <div class="about centrar">
+              {{ recordatorio['created_at'].strftime('%H:%M %Y-%m-%d') }}
+            </div>
+            <div class="centrar varios">
+              <a
+              class="action boton"
+              href="{{ url_for('patrones.update', id=recordatorio['id']) }}"
+              >Editar</a
+          >
+            <a
+              class="action boton"
+              href="{{ url_for('patrones.complete', id=recordatorio['id']) }}"
+              >Completar</a
+            >
+
+            </div>
+        
+          </div>
+        </li>
+        {% if not loop.last %}
+        <hr />
+        {% endif %} {% endfor %}
+      </div>
+    </ul>
+  </div>
+  <div class="item">
+    <ul>
+      <div>
+        {% for recordatorio in recordatorios %}
+        <li class="pedido">
+          <div class="Columna inicio centrarcontenido">
+            <h2>
+              {% if recordatorio['completed'] == 1%}
+              <strike>{{ recordatorio['description'] }}</strike>
+              {%else%}{{ recordatorio['description'] }} {%endif%}
+            </h2>
+
+            <div class="about centrar">
+              {{ recordatorio['created_at'].strftime('%H:%M %Y-%m-%d') }}
+            </div>
+            <div class="centrar varios">
+              <a
+              class="action boton"
+              href="{{ url_for('patrones.update', id=recordatorio['id']) }}"
+              >Editar</a
+          >
+            <a
+              class="action boton"
+              href="{{ url_for('patrones.complete', id=recordatorio['id']) }}"
+              >Completar</a
+            >
+
+            </div>
+        
+          </div>
+        </li>
+        {% if not loop.last %}
+        <hr />
+        {% endif %} {% endfor %}
+      </div>
+    </ul>
+  </div>
+
 </div>
+    <!-- Boton -->
+    <div class="centrarboton">
+      <a
+        class="action boton"
+        href="{{ url_for('patrones.interfaces', pagina='interfaces') }}"
+        >Actividades</a
+      >
+    </div>
+
+
 {% endblock %}
