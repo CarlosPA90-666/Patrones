@@ -1,28 +1,18 @@
-{% extends 'base.html' %} {% block header %}
+{% extends 'base.html' %} 
+{% block header %}
 <h1 class="centrar">{% block title %}Iniciar Sesión{% endblock %}</h1>
-{% endblock %} {% block content %}
-<div class="formulario Columna inicio centrarcontenido">
-  <form method="POST" class="ingresar Columna inicio centrarcontenido">
-    <label for="username">Username</label>
-    <input
-      type="text"
-      name="username"
-      id="username"
-      placeholder="Username..."
-      required
-    />
+{% endblock %} 
+{% block content %}
+
+<section class="form-register">
+  <form method="POST">
+
+    <label for="Username">Username</label>
+    <input class="controls" type="text" name="username" id="username" placeholder="Username..." required>
+
     <label for="password">Password</label>
-    <input
-      type="password"
-      name="password"
-      id="password"
-      placeholder="Password..."
-      required
-    />
-    <div class="centrar">
-      <input class="boton" type="submit" value="Iniciar Sesión" />
-    </div>
-    
+    <input class="controls" type="password" name="password" id="password" placeholder="Password..." required>
+    <input  class="botons" type="submit" value="Iniciar Sesión">
   </form>
-</div>
+</section>
 {% endblock %}
