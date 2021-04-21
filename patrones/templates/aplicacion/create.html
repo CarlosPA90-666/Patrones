@@ -2,23 +2,19 @@
 <h1 class="centrar">{% block title %} Nuevo Recordatorio {% endblock %}</h1>
 {% endblock %} {% block content %}
 
-<div class="centrar">
-  <div class="Columna inicio centrarcontenido">
-    <h2 class="centrar">RECORDATORIOS</h2>
+<section class="form-register">
 
-    <form method="POST">
-      <input
-        type="text"
-        name="description"
-        id="description"
-        placeholder="Recordatorio..."
-      />
-      <input class="boton" type="submit" value="Guardar" />
-    </form>
+  <h2 class="centrar">RECORDATORIOS</h2>
 
-    <ul id="elementoUl"></ul>
-  </div>
-</div>
+  <form method="POST">
+
+    <input class="controls" type="text" name="description" id="description" placeholder="Recordatorio...">
+    <input class="boton" type="submit" value="Guardar" />
+  </form>
+
+  <ul id="elementoUl"></ul>
+
+</section>
 
 <div class="centrar">
   <a class="action boton" href="{{ url_for('patrones.index') }}">Volver</a>
