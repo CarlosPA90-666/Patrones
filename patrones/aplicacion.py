@@ -12,7 +12,19 @@ def index():
     c.execute('select r.id, r.description, u.username, r.completed, r.created_at from Recordatorio r JOIN Usuario u on '
             'r.created_by = u.id where r.created_by=%s order by created_at desc',(g.user['id'],))
     recordatorios = c.fetchall()
-    return render_template('aplicacion/recordatorios.html', recordatorios=recordatorios) #TODO
+
+    c.execute('select m.id, m.description, u.username, m.medicine, m.posology, m.amount from Medicamento m JOIN Usuario u on '
+            'm.created_by = u.id where m.created_by=%s',(g.user['id'],))
+    medicamentos = c.fetchall()
+
+    c.execute('select c.id, c.specialization, u.username, c.date, c.doctor, c.companion from Cita c JOIN Usuario u on '
+            'c.created_by = u.id where c.created_by=%s',(g.user['id'],))
+    citas = c.fetchall()
+
+    #c.execute('select r.id, r.description, u.username, r.completed, r.created_at from Recordatorio r JOIN Usuario u on '
+    #        'r.created_by = u.id where r.created_by=%s order by created_at desc',(g.user['id'],))
+    #recordatorios = c.fetchall()
+    return render_template('aplicacion/recordatorios.html', recordatorios=recordatorios, medicamentos=medicamentos, citas=citas) 
 
 ########################################################### RECORDATORIO ###########################################################
 
@@ -89,9 +101,9 @@ def complete(id):
 
 ########################################################### MEDICAMENTO ###########################################################
 
-@bp.route('/create',methods=['GET','POST'])
+@bp.route('/createM',methods=['GET','POST'])
 @login_require
-def create_medicamento():
+def createM():
     if request.method=="POST":
         nombre = request.form['nombre_medicamento']
         description = request.form['descripcion_medicamento']
@@ -102,24 +114,24 @@ def create_medicamento():
 
         error = None
 
-        if not nombre_medicamento:
+        if not nombre:
             error = 'Nombre del Medicamento requerido'
         if error is not None:
             flash(error)
         else:
             db,c = get_db()
-            c.execute('insert into Medicamento (created_by,nombre,descripcion,dosis,posologia,precio,cantidad)'
-                    ' values (%s,%s,%s,%s,%s)',(g.user['id'],description,False))
+            c.execute('insert into Medicamento (created_by,medicine,description,dose,posology,price,amount)'
+                    ' values (%s,%s,%s,%s,%s,%s,%s)',(g.user['id'], nombre, description, dosis, posologia, precio, cantidad))
         db.commit()
-        return redirect(url_for('patrones.index')) #TODO
+        return redirect(url_for('patrones.index'))
 
-    return render_template('aplicacion/create.html') #TODO
+    return render_template('aplicacion/createM.html')
 
 ##########################################################################################################################################
 # Modificacion de medicamentos (requiere frontend)
-@bp.route('/<int:id>/update',methods=['GET','POST'])
+@bp.route('/<int:id>/updateM',methods=['GET','POST'])
 @login_require
-def update_medicamento(id):
+def updateM(id):
     medicamento = get_medicamento(id)
     if request.method == 'POST':
         dosis = request.form['dosis_medicamento']
@@ -133,15 +145,15 @@ def update_medicamento(id):
             flash(error)
         else:
             db, c = get_db()
-            c.execute('update Medicamento set dosis = %s, posologia = %s, precio = %s, cantidad = %s'
-                ' where id = %s and created_by = %s', (dosis, posologia, precio, cantidad ,description, id, g.user['id']))
+            c.execute('update Medicamento set dose = %s, posology = %s, price = %s, amount = %s'
+                ' where id = %s and created_by = %s', (dosis, posologia, precio, cantidad, id, g.user['id']))
             db.commit()
-            return redirect(url_for('patrones.index')) #TODO
-    return render_template('aplicacion/update.html',medicamento=medicamento) #TODO
+            return redirect(url_for('patrones.index')) 
+    return render_template('aplicacion/updateM.html',medicamento=medicamento) 
 
 def get_medicamento(id):
     db,c = get_db()
-    c.execute('select m.id, m.posologia, m.dosis, m.created_by, m.precio, m.cantidad' 
+    c.execute('select m.id, m.posology, m.dose, m.created_by, m.price, m.amount,' 
             ' u.username from Medicamento m join Usuario u on m.created_by = u.id where m.id = %s',(id,))
     medicamento = c.fetchone()
     if medicamento is None:
@@ -150,20 +162,20 @@ def get_medicamento(id):
 
 ##########################################################################################################################################
 # Eliminar de medicamentos (requiere frontend)
-@bp.route('/<int:id>/delete',methods=['POST'])
+@bp.route('/<int:id>/deleteM',methods=['POST'])
 @login_require
-def delete_medicamento(id):
+def deleteM(id):
     db,c = get_db()
     c.execute('delete from Medicamento where id = %s and created_by = %s',(id,g.user['id']))
     db.commit()
-    return redirect(url_for('patrones.index')) #TODO
+    return redirect(url_for('patrones.index')) 
 
 ########################################################### CITAS MEDICAS ###########################################################
 
 # Creacion de citas medicas (requiere frontend)
-@bp.route('/create',methods=['GET','POST'])
+@bp.route('/createC',methods=['GET','POST'])
 @login_require
-def create_cita():
+def createC():
     if request.method=="POST":
         date = request.form['fecha_cita']
         doctor = request.form['doctor_cita']
@@ -178,17 +190,17 @@ def create_cita():
             flash(error)
         else:
             db,c = get_db()
-            c.execute('insert into Citas (created_by,date,doctor,specialization,companion)'
+            c.execute('insert into Cita (created_by,date,doctor,specialization,companion)'
                     ' values (%s,%s,%s,%s,%s)',(g.user['id'],date,doctor,specialization,companion))
         db.commit()
-        return redirect(url_for('patrones.index')) #TODO
+        return redirect(url_for('patrones.index')) 
 
-    return render_template('aplicacion/create.html') #TODO
+    return render_template('aplicacion/createC.html') 
 ##########################################################################################################################################
 # Modificacion de citas medicas (requiere frontend)
-@bp.route('/<int:id>/update',methods=['GET','POST'])
+@bp.route('/<int:id>/updateC',methods=['GET','POST'])
 @login_require
-def update_cita(id):
+def updateC(id):
     cita = get_cita(id)
     if request.method == 'POST':
         date = request.form['fecha_cita']
@@ -204,12 +216,12 @@ def update_cita(id):
             c.execute('update Cita set date = %s, doctor = %s, specialization = %s, companion = %'
                 ' where id = %s and created_by = %s', (date, doctor, specialization, companion, id, g.user['id']))
             db.commit()
-            return redirect(url_for('patrones.index')) #TODO
-    return render_template('aplicacion/update.html',cita=cita) #TODO
+            return redirect(url_for('patrones.index')) 
+    return render_template('aplicacion/updateC.html',cita=cita) 
 
 def get_cita(id):
     db,c = get_db()
-    c.execute('select c.id, c.date, c.doctor, c.created_by, c.specialization, c.companion' 
+    c.execute('select c.id, c.date, c.doctor, c.created_by, c.specialization, c.companion,' 
             ' u.username from Cita c join Usuario u on c.created_by = u.id where c.id = %s',(id,))
     cita = c.fetchone()
     if cita is None:
@@ -218,13 +230,13 @@ def get_cita(id):
 
 ##########################################################################################################################################
 # Eliminar de medicamentos (requiere frontend)
-@bp.route('/<int:id>/delete',methods=['POST'])
+@bp.route('/<int:id>/deleteC',methods=['POST'])
 @login_require
-def delete_cita(id):
+def deleteC(id):
     db,c = get_db()
     c.execute('delete from Cita where id = %s and created_by = %s',(id,g.user['id']))
     db.commit()
-    return redirect(url_for('patrones.index')) #TODO
+    return redirect(url_for('patrones.index')) 
 ##########################################################################################################################################
 @bp.route('/<string:pagina>')
 @login_require

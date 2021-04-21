@@ -47,6 +47,7 @@ instructions = [
             date TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
             doctor VARCHAR(100) NOT NULL,
             specialization VARCHAR(100) NOT NULL,
+            companion VARCHAR(100) NOT NULL,
             FOREIGN KEY (created_by) REFERENCES Usuario (id)
         );
     """

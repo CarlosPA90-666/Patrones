@@ -1,6 +1,6 @@
 {% extends 'base.html' %} {% block header %}
 <h1 class="centrar">
-  {% block title %} Editar: {{ Medicamentos['description'] }}{% endblock %}
+  {% block title %} Editar: {{ medicamento['description'] }}{% endblock %}
 </h1>
 {% endblock %} {% block content %}
 
@@ -9,33 +9,52 @@
   <form class="Columna inicio centrarcontenido" method="POST">
     <input
       type="text"
-      name="description"
-      id="description"
-      placeholder="Recordatorio..."
+      name="dosis_medicamento"
+      id="dosis_medicamento"
+      placeholder="Dosis..."
     />
-     <!--Campo donde se ingresan las medicinas-->
+
+    <input
+      type="text"
+      name="posologia_medicamento"
+      id="posologia_medicamento"
+      placeholder="Posologia..."
+    />
+
+    <input
+      type="text"
+      name="precio_medicamento"
+      id="precio_medicamento"
+      placeholder="Precio..."
+    />
+
+    <input
+      type="text"
+      name="cantidad_medicamento"
+      id="cantidad_medicamento"
+      placeholder="Cantidad..."
+    />
+    <!--Campo donde se ingresan las medicinas-->
     <input class="boton centrar" type="submit" value="Guardar" />
   </form>
 
   <!--Edicion de las medicinas consumidas-->
   <div class="box">
-       <!--"id=recordatorio" tiene que cambiar por la variable de medicinas-->
-    <form class="actualizacion"
-    action="{{ url_for('patrones.delete',id=recordatorio['id']) }}"
-    method="POST"
-  >
-   <!--Elimnar medicinas-->
-    <input
-      class="boton"
-      type="submit"
-      value="Eliminar"
-      onclick="return confirm('¿estas seguro de querer eliminarlo?')"
-    />
-    <a class="action boton" href="{{ url_for('patrones.index') }}">Volver</a>
-  </form>
-  
-    
+    <!--"id=recordatorio" tiene que cambiar por la variable de medicinas-->
+    <form
+      class="actualizacion"
+      action="{{ url_for('patrones.deleteM',id=medicamento['id']) }}"
+      method="POST"
+    >
+      <!--Elimnar medicinas-->
+      <input
+        class="boton"
+        type="submit"
+        value="Eliminar"
+        onclick="return confirm('¿estas seguro de querer eliminarlo?')"
+      />
+      <a class="action boton" href="{{ url_for('patrones.index') }}">Volver</a>
+    </form>
   </div>
-  
 </div>
 {% endblock %}

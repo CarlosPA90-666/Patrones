@@ -1,14 +1,20 @@
-{% extends 'base.html' %} 
-{% block header %}
-<div class="box centrar">
+{% extends 'base.html' %} {% block header %}
+
+<div class="boxline">
   {% if g.user %}
-  <a class="action boton" href="{{ url_for('patrones.create') }}">Nuevo</a>
+  <a class="action boton" href="{{ url_for('patrones.create') }}"
+    >Nuevo recordatorio</a
+  >
+  <a class="action boton" href="{{ url_for('patrones.createM') }}"
+    >Nuevo medicamento</a
+  >
+  <a class="action boton" href="{{ url_for('patrones.createC') }}"
+    >Nueva cita medica</a
+  >
   {% endif %}
 </div>
-{% endblock %} 
-
-{% block content %}
-
+{% endblock %} {% block content %}
+<br />
 <div class="container">
   <div class="boxline">
     <ul>
@@ -17,30 +23,26 @@
         <li class="pedido">
           <div class="Columna inicio centrarcontenido">
             <!-- Caja de Recordatorios -->
-            <h2>
-              Recordatorios
-              {% if recordatorio['completed'] == 1%}
-              <strike>{{ recordatorio['description'] }}</strike>
-              {%else%}{{ recordatorio['description'] }} {%endif%}
-            </h2>
+            <h2>{{ recordatorio['description'] }}</h2>
 
             <div class="about centrar">
-              {{ recordatorio['created_at'].strftime('%H:%M %Y-%m-%d') }}
+              {{ recordatorio['created_at'].strftime('%H:%M') }} <br />
+              {{ recordatorio['created_at'].strftime('%Y-%m-%d') }}
             </div>
             <div class="centrar varios">
               <a
-              class="action boton"
-              href="{{ url_for('patrones.update', id=recordatorio['id']) }}"
-              >Editar</a
-          >
-            <a
-              class="action boton"
-              href="{{ url_for('patrones.complete', id=recordatorio['id']) }}"
-              >Completar</a
-            >
-
+                class="action boton"
+                href="{{ url_for('patrones.update', id=recordatorio['id']) }}"
+                >Editar</a
+              >
+              <!--
+              <a
+                class="action boton"
+                href="{{ url_for('patrones.complete', id=recordatorio['id']) }}"
+                >Completar</a
+              >
+              -->
             </div>
-        
           </div>
         </li>
         {% if not loop.last %}
@@ -52,34 +54,23 @@
   <div class="boxline">
     <ul>
       <div>
-        {% for recordatorio in recordatorios %}
+        {% for medicamento in medicamentos %}
         <li class="pedido">
           <div class="Columna inicio centrarcontenido">
             <!-- Caja de Medicamentos -->
-            <h2>
-              Medicamentos
-              {% if recordatorio['completed'] == 1%}
-              <strike>{{ recordatorio['description'] }}</strike>
-              {%else%}{{ recordatorio['description'] }} {%endif%}
-            </h2>
+            <h2>{{ medicamento['medicine'] }}</h2>
 
             <div class="about centrar">
-              {{ recordatorio['created_at'].strftime('%H:%M %Y-%m-%d') }}
+              {{ medicamento['posology'] }} {{ medicamento['doce'] }}
+              <br />Cantidad disponible:{{ medicamento['amount'] }}
             </div>
             <div class="centrar varios">
               <a
-              class="action boton"
-              href="{{ url_for('patrones.update', id=recordatorio['id']) }}"
-              >Editar</a
-          >
-            <a
-              class="action boton"
-              href="{{ url_for('patrones.complete', id=recordatorio['id']) }}"
-              >Completar</a
-            >
-
+                class="action boton"
+                href="{{ url_for('patrones.updateM', id=medicamento['id']) }}"
+                >Editar</a
+              >
             </div>
-        
           </div>
         </li>
         {% if not loop.last %}
@@ -91,34 +82,24 @@
   <div class="boxline">
     <ul>
       <div>
-        {% for recordatorio in recordatorios %}
+        {% for cita in citas %}
         <li class="pedido">
           <div class="Columna inicio centrarcontenido">
             <!-- Caja de Citas Medicas -->
-            <h2>
-              CitasMedicas
-              {% if recordatorio['completed'] == 1%}
-              <strike>{{ recordatorio['description'] }}</strike>
-              {%else%}{{ recordatorio['description'] }} {%endif%}
-            </h2>
+            <h2>{{ cita['specialization'] }}</h2>
 
             <div class="about centrar">
-              {{ recordatorio['created_at'].strftime('%H:%M %Y-%m-%d') }}
+              Doctor: {{ cita['doctor'] }} <br />
+              Acompañante: {{ cita['companion'] }} <br />
+              {{cita['date'].strftime('%Y-%m-%d') }}
             </div>
             <div class="centrar varios">
               <a
-              class="action boton"
-              href="{{ url_for('patrones.update', id=recordatorio['id']) }}"
-              >Editar</a
-          >
-            <a
-              class="action boton"
-              href="{{ url_for('patrones.complete', id=recordatorio['id']) }}"
-              >Completar</a
-            >
-
+                class="action boton"
+                href="{{ url_for('patrones.updateC', id=cita['id']) }}"
+                >Editar</a
+              >
             </div>
-        
           </div>
         </li>
         {% if not loop.last %}
@@ -128,14 +109,13 @@
     </ul>
   </div>
 </div>
-    <!-- Boton -->
-    <div class="centrarboton">
-      <a
-        class="action boton"
-        href="{{ url_for('patrones.interfaces', pagina='interfaces') }}"
-        >Actividades</a
-      >
-    </div>
-
+<!-- Boton -->
+<div class="centrarboton">
+  <a
+    class="action boton"
+    href="{{ url_for('patrones.interfaces', pagina='interfaces') }}"
+    >Actividades</a
+  >
+</div>
 
 {% endblock %}

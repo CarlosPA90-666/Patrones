@@ -1,27 +1,42 @@
 {% extends 'base.html' %} {% block header %}
-<h1 class="centrar">{% block title %} Nuevo Recordatorio {% endblock %}</h1>
+<h1 class="centrar">{% block title %} Crear cita médica {% endblock %}</h1>
 {% endblock %} {% block content %}
 
 <section class="form-register">
+  <h2 class="centrar">CITAS</h2>
 
-    <h2 class="centrar">CITAS</h2>
-  
-    <form method="POST">
-  
-      <input class="controls" type="date" name="fecha_cita" id="fecha_cita">
+  <form method="POST">
+    <input class="controls" type="date" name="fecha_cita" id="fecha_cita" />
 
-      <input class="controls" type="text" name="doctor_cita" id="doctor_cita" placeholder="doctor...">
+    <input
+      class="controls"
+      type="text"
+      name="doctor_cita"
+      id="doctor_cita"
+      placeholder="doctor..."
+    />
 
-      <input class="controls" type="text" name="especialidad_cita" id="especialidad_cita" placeholder="especialidad...">
+    <input
+      class="controls"
+      type="text"
+      name="especialidad_cita"
+      id="especialidad_cita"
+      placeholder="especialidad..."
+    />
 
-      <input class="controls" type="text" name="acompanante_cita" id="acompanante_cita" placeholder="acompañante...">
+    <input
+      class="controls"
+      type="text"
+      name="acompanante_cita"
+      id="acompanante_cita"
+      placeholder="acompañante..."
+    />
 
-      <input class="boton" type="submit" value="Guardar" />
-    </form>
-  
-    <ul id="elementoUl"></ul>
-  
-  </section>
+    <input class="boton" type="submit" value="Guardar" />
+  </form>
+
+  <ul id="elementoUl"></ul>
+</section>
 
 <div class="centrar">
   <a class="action boton" href="{{ url_for('patrones.index') }}">Volver</a>

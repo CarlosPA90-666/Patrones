@@ -1,55 +1,93 @@
 {% extends 'base.html' %} {% block header %}
 <h1 class="centrar">{% block title %}Registro{% endblock %}</h1>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Formulario Registro</title>
-{% endblock %}
-{% block content %}
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+<title>Formulario Registro</title>
+{% endblock %} {% block content %}
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
   <title>Formulario Registro</title>
 </head>
 
 <section class="form-register">
   <form method="POST">
-
     <label for="Username">Username</label>
-    <input class="controls" type="text" name="username" id="username" placeholder="Username..." required>
+    <input
+      class="controls"
+      type="text"
+      name="username"
+      id="username"
+      placeholder="Username..."
+      required
+    />
 
     <label for="password">Password</label>
-    <input class="controls" type="password" name="password" id="password" placeholder="Password..." required>
+    <input
+      class="controls"
+      type="password"
+      name="password"
+      id="password"
+      placeholder="Password..."
+      required
+    />
 
     <label for="email">Email</label>
-    <input class="controls" type="text" name="email" id="email" placeholder="Email..." required>
+    <input
+      class="controls"
+      type="text"
+      name="email"
+      id="email"
+      placeholder="Email..."
+      required
+    />
 
     <label for="address">Direccion</label>
-    <input class="controls" name="address" id="address" placeholder="Direcion..." required>
+    <input
+      class="controls"
+      name="address"
+      id="address"
+      placeholder="Direcion..."
+      required
+    />
 
     <label for="phone">Telefono</label>
-    <input class="controls" type="number" min="3000000000" max="3999999999" name="phone" id="phone" placeholder="Telefono..."required>
+    <input
+      class="controls"
+      type="number"
+      min="3000000000"
+      max="3999999999"
+      name="phone"
+      id="phone"
+      placeholder="Telefono..."
+      required
+    />
 
-    <nav class="navegacion">
-      <ul class="menu">
-        <li><a href="#">Tipo</a>
-          <ul class="submenu">
-            <li><a href="#">Familiar</a></li>
-            <li><a href="#">Cuidador</a></li>
-            <li><a href="#">Adulto mayor</a></li>
-          </ul>
-        </li>
-      </ul>
-    </nav>
-    <br>
+    <label for="role">Tipo de usuario</label>
+    <select class="controls" name="role" id="role" required>
+      <option value="1">Familiar</option>
+      <option value="2">Cuidador</option>
+      <option value="3">Adulto mayor</option>
+    </select>
 
     <label for="phone">Fecha de nacimiento</label>
-    <input class="controls" type="date" name="birthdate" id="birthdate" required>
-    <input id="registroInicio" class="botons" type="submit" value="Registrarse">
+    <input
+      class="controls"
+      type="date"
+      name="birthdate"
+      id="birthdate"
+      required
+    />
+    <input
+      id="registroInicio"
+      class="botons"
+      type="submit"
+      value="Registrarse"
+    />
   </form>
 </section>
-
 
 {% endblock %}

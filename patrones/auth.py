@@ -33,10 +33,10 @@ def register():
 
         if error is None:
             c.execute('insert into Usuario (username, password, email, address, phone, birthdate, role) values' 
-                    '(%s,%s,%s,%s,%s,%s)',(username, generate_password_hash(password),email,address,phone,birthdate,role))
+                    '(%s,%s,%s,%s,%s,%s,%s)',(username, generate_password_hash(password),email,address,phone,birthdate,role))
             db.commit()
 
-            email(username,email)
+            send(username,email)
 
             return redirect(url_for('auth.login'))
         flash(error)
@@ -91,12 +91,12 @@ def logout():
     session.clear()
     return redirect(url_for('auth.login'))
 
-def email(usuario, correo) :
+def send(usuario, correo) :
     msg = MIMEMultipart()
     message = "Bienvenido {}! \nGracias por preocuparte por los adultos mayores tanto como nosotros.\
         \nEn nuestra aplicación podras gestionar recordatorios, medicamentos y las citas médicas en veras de una vida\
         cómoda, feliz y tranquila para su familiar. Asi mismo, encontrara ejercicios de estimulación fisica y mental asegunrando\
-        una buena calidad de vida."
+        una buena calidad de vida.".format(usuario)
     
     password = "Ni426293."
     msg['From'] = "nicolas.cifuentes01@correo.usa.edu.co"
