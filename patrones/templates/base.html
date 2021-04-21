@@ -23,10 +23,11 @@
         {% endif %}
         </ul>    
     </nav>
-    <div class="Reloj">
-      <iframe
-        src="https://www.zeitverschiebung.net/clock-widget-iframe-v2?language=es&size=large&timezone=America%2FBogota"></iframe>
-    </div>
+  </div>
+  
+  <div class="Reloj">
+    <iframe
+      src="https://www.zeitverschiebung.net/clock-widget-iframe-v2?language=es&size=large&timezone=America%2FBogota"></iframe>
   </div>
 
   <div class= "contentb">
@@ -35,7 +36,7 @@
     <p>PAPA FRANCISCO</p>
     <!--<div class="imp_res"></div>-->
   </div>
-
+  
   <section class="content">
     <header>{% block header %}{% endblock %}</header>
     {% for message in get_flashed_messages() %}

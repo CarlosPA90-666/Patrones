@@ -1,6 +1,5 @@
 {% extends 'base.html' %} 
 {% block header %}
-<h1 class="centrar">{% block title %} Recordatorios {% endblock %}</h1>
 <div class="box centrar">
   {% if g.user %}
   <a class="action boton" href="{{ url_for('patrones.create') }}">Nuevo</a>
@@ -11,13 +10,14 @@
 {% block content %}
 
 <div class="container">
-  <div class="item">
+  <div class="boxline">
     <ul>
       <div>
         {% for recordatorio in recordatorios %}
         <li class="pedido">
           <div class="Columna inicio centrarcontenido">
-            <h2>
+            <h2 class="boxline">
+              Recordatorios
               {% if recordatorio['completed'] == 1%}
               <strike>{{ recordatorio['description'] }}</strike>
               {%else%}{{ recordatorio['description'] }} {%endif%}
@@ -48,13 +48,14 @@
       </div>
     </ul>
   </div>
-  <div class="item">
+  <div class="boxline">
     <ul>
       <div>
         {% for recordatorio in recordatorios %}
         <li class="pedido">
           <div class="Columna inicio centrarcontenido">
-            <h2>
+            <h2 class="boxline">
+              Medicamentos
               {% if recordatorio['completed'] == 1%}
               <strike>{{ recordatorio['description'] }}</strike>
               {%else%}{{ recordatorio['description'] }} {%endif%}
@@ -85,13 +86,14 @@
       </div>
     </ul>
   </div>
-  <div class="item">
+  <div class="boxline">
     <ul>
       <div>
         {% for recordatorio in recordatorios %}
         <li class="pedido">
           <div class="Columna inicio centrarcontenido">
-            <h2>
+            <h2 class="boxline">
+              CitasMedicas
               {% if recordatorio['completed'] == 1%}
               <strike>{{ recordatorio['description'] }}</strike>
               {%else%}{{ recordatorio['description'] }} {%endif%}
@@ -122,7 +124,6 @@
       </div>
     </ul>
   </div>
-
 </div>
     <!-- Boton -->
     <div class="centrarboton">
