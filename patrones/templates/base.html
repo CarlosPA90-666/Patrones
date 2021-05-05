@@ -14,11 +14,12 @@
 
           <li><span class="usuario">{{ g.user['username'] }}</span></li>
           <li><a class="boton" href="{{ url_for('auth.logout') }}">Cerrar Sesión</a></li>
-  
+          <li><a class="botonalert">Alerta</a></li>
         {% else %}
   
           <li><a class="boton" href="{{ url_for('auth.register') }}">Registrarse</a></li>
           <li><a class="boton" href="{{ url_for('auth.login') }}">Iniciar Sesión</a></li>
+          
         
         {% endif %}
         </ul>    
