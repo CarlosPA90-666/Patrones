@@ -4,6 +4,7 @@
 </h1>
 {% endblock %} {% block content %}
 
+<<<<<<< HEAD
 <!--Campo donde se ingresan las medicinas nueva-->
 <section class="form-register">
   <h2 class="centrar">Medicamentos</h2>
@@ -36,6 +37,18 @@
       id="cantidad_medicamento"
       placeholder="Cantidad..."
     />
+=======
+<!--Campo donde se ingresan las medicinas nuevas-->
+<div class="formulario Columna inicio centrarcontenido">
+  <form class="Columna inicio centrarcontenido" method="POST">
+    <input type="text" name="dosis_medicamento" id="dosis_medicamento" placeholder="Dosis..."/>
+
+    <input type="text" name="posologia_medicamento" id="posologia_medicamento" placeholder="Posologia..."/>
+
+    <input type="text" name="precio_medicamento" id="precio_medicamento" placeholder="Precio..."/>
+
+    <input type="text" name="cantidad_medicamento" id="cantidad_medicamento" placeholder="Cantidad..."/>
+>>>>>>> aa58cbf3bd56327ded5e28c0211ea334d632b5bf
     <!--Campo donde se ingresan las medicinas-->
     <input class="boton centrar" type="submit" value="Guardar" />
   </form>
@@ -50,8 +63,7 @@
       method="POST"
     >
       <!--Elimnar medicinas-->
-      <input
-        class="boton"
+      <input class="boton"
         type="submit"
         value="Eliminar"
         onclick="return confirm('¿estas seguro de querer eliminarlo?')"
@@ -59,5 +71,30 @@
       <a class="action boton" href="{{ url_for('patrones.index') }}">Volver</a>
     </form>
   </div>
+<<<<<<< HEAD
+=======
+</div>
+
+
+<section class="form-register">
+  <h2 class="centrar">Medicamentos</h2>
+
+  <form method="POST">
+    
+    <input type="text" name="dosis_medicamento" id="dosis_medicamento" placeholder="Dosis..."/>
+
+    <input type="text" name="posologia_medicamento" id="posologia_medicamento" placeholder="Posologia..."/>
+
+    <input type="text" name="precio_medicamento" id="precio_medicamento" placeholder="Precio..."/>
+
+    <input type="text" name="cantidad_medicamento" id="cantidad_medicamento" placeholder="Cantidad..."/>
+    <!--Campo donde se ingresan las medicinas-->
+    <input class="boton centrar" type="submit" value="Guardar" />
+
+
+  </form>
+
+  <ul id="elementoUl"></ul>
+>>>>>>> aa58cbf3bd56327ded5e28c0211ea334d632b5bf
 </section>
 {% endblock %}
