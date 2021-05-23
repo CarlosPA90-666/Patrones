@@ -4,6 +4,8 @@ instructions = [
     'DROP TABLE IF EXISTS Recordatorio;',
     'DROP TABLE IF EXISTS Medicamento;',
     'DROP TABLE IF EXISTS Cita;',
+    'DROP TABLE IF EXISTS Familia;',
+    'DROP TABLE IF EXISTS Mensaje;',
     'SET FOREIGN_KEY_CHECKS=1;',
     """
         CREATE TABLE Usuario(
